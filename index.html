@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Game Klasik 90-an</title>
+    <style>
+        /* === Gaya Dasar & Font === */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* === Notifikasi Berjalan === */
+        .marquee-container {
+            background-color: #d4af37; /* Emas */
+            color: #121212;
+            padding: 10px 0;
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .marquee-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.2em;
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0%   { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* === Kontainer Utama === */
+        .main-container {
+            margin-top: 80px; /* Ruang untuk notifikasi */
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d4af37;
+            font-size: 3em;
+            text-shadow: 2px 2px 8px rgba(212, 175, 55, 0.5);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #aaa;
+        }
+        
+        /* === Bingkai Game === */
+        .game-frame-container {
+            background: #202020;
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #gameFrame {
+            width: 100%;
+            height: 600px; /* Tinggi bingkai game */
+            border: none;
+            border-radius: 10px;
+            background-color: #000;
+        }
+
+        /* === Menu Pilihan Game === */
+        .game-menu {
+            margin-top: 20px;
+        }
+        
+        .game-menu h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .game-menu .game-button {
+            background-color: #333;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .game-menu .game-button:hover {
+            background-color: #d4af37;
+            color: #121212;
+        }
+
+        /* === Gelembung WhatsApp === */
+        .whatsapp-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-bubble:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-bubble svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Notifikasi Berjalan di Atas -->
+    <div class="marquee-container">
+        <div class="marquee-text">
+            Selamat Datang di Galeri Game Klasik 90-an! Temukan kembali nostalgia game-game arcade terbaik di sini.
+        </div>
+    </div>
+
+    <!-- Konten Utama -->
+    <div class="main-container">
+        <header>
+            <h1>GAME ARCADE KLASIK</h1>
+            <p>Mainkan game legendaris tahun 90-an langsung di browsermu.</p>
+        </header>
+
+        <!-- Frame untuk Menampilkan Game -->
+        <div class="game-frame-container">
+            <iframe id="gameFrame" src="https://www.retrogames.cc/embed/41926-the-punisher-world-930422.html" allowfullscreen="true"></iframe>
+        </div>
+
+        <!-- Menu dan Tombol Pilihan Game -->
+        <div class="game-menu">
+            <h3>Pilih Game Favoritmu</h3>
+            <button class="game-button" onclick="changeGame('https://www.retrogames.cc/embed/41926-the-punisher-world-930422.html')">The Punisher</button>
+            <button class="game-button" onclick="changeGame('https://www.retrogames.cc/embed/41870-captain-commando-world-911202.html')">Captain Commando</button>
+            <button class="game-button" onclick="changeGame('https://www.retrogames.cc/embed/34421-metal-slug-super-vehicle-001.html')">Metal Slug</button>
+            <button class="game-button" onclick="changeGame('https://www.retrogames.cc/embed/10186-puzzle-bobble-b-system.html')">Bubble Shooter</button>
+            <button class="game-button" onclick="changeGame('https://www.retrogames.cc/embed/34469-sunset-riders-4-player-ver-eac.html')">Sunset Riders (Koboi)</button>
+        </div>
+    </div>
+
+    <!-- Gelembung Layanan Admin WhatsApp -->
+    <a href="https://wa.me/6285810526151" class="whatsapp-bubble" target="_blank" title="Hubungi Admin">
+        <svg viewBox="0 0 24 24">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.31 20.6C8.75 21.36 10.36 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2M12.04 20.13C10.56 20.13 9.12 19.72 7.89 19L7.5 18.78L4.36 19.65L5.26 16.61L4.98 16.22C4.12 14.86 3.66 13.33 3.66 11.91C3.66 7.33 7.42 3.57 12.04 3.57C16.66 3.57 20.42 7.33 20.42 11.91C20.42 16.5 16.66 20.13 12.04 20.13M17.44 14.43C17.22 14.32 16.13 13.8 15.92 13.72C15.71 13.64 15.55 13.6 15.39 13.88C15.23 14.16 14.71 14.72 14.56 14.88C14.41 15.04 14.25 15.06 14 14.94C13.75 14.82 12.91 14.54 11.91 13.69C11.11 13.01 10.58 12.19 10.44 11.95C10.3 11.71 10.42 11.59 10.54 11.47C10.65 11.36 10.78 11.18 10.91 11.03C11.04 10.88 11.08 10.77 11.16 10.61C11.24 10.45 11.2 10.31 11.12 10.19C11.04 10.08 10.56 8.88 10.36 8.4C10.16 7.92 9.95 8.01 9.79 8.01C9.62 8.01 9.46 8.01 9.3 8.01C9.14 8.01 8.86 8.09 8.62 8.33C8.38 8.57 7.78 9.13 7.78 10.33C7.78 11.53 8.64 12.65 8.76 12.81C8.88 12.97 10.45 15.34 12.83 16.32C15.21 17.3 15.21 16.88 15.45 16.85C15.69 16.83 16.78 16.23 16.98 15.64C17.18 15.05 17.18 14.55 17.1 14.43Z"></path>
+        </svg>
+    </a>
+
+    <script>
+        function changeGame(gameUrl) {
+            const gameFrame = document.getElementById('gameFrame');
+            gameFrame.src = gameUrl;
+        }
+    </script>
+</body>
+</html>
